@@ -29,7 +29,7 @@
 
 
 #load colors
-autoload colors && colors
+autoload -U colors && colors
 for COLOR in RED GREEN YELLOW BLUE MAGENTA CYAN BLACK WHITE; do
     eval $COLOR='%{$fg_no_bold[${(L)COLOR}]%}'  #wrap colours between %{ %} to avoid weird gaps in autocomplete
     eval BOLD_$COLOR='%{$fg_bold[${(L)COLOR}]%}'
@@ -45,8 +45,7 @@ violet=$CYAN
 reset=$RESET
 
 
-PROMPT='$(build_prompt)%{$fg_bold[green]%}%~
- %{$fg_bold[white]%}∙ '
+PROMPT='$(build_prompt)'
 RPROMPT='%{$reset_color%}%T %{$fg_bold[white]%} %n@%m%{$reset_color%}'
 
 
