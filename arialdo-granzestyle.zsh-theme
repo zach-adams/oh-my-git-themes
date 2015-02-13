@@ -45,8 +45,8 @@ violet=$CYAN
 reset=$RESET
 
 
-PROMPT='$(build_prompt)
-∙ '
+PROMPT='$(build_prompt)%{$fg_bold[green]%}%~
+ %{$fg_bold[white]%}∙ '
 RPROMPT='%{$reset_color%}%T %{$fg_bold[white]%} %n@%m%{$reset_color%}'
 
 
@@ -135,7 +135,7 @@ function custom_build_prompt {
         fi
         prompt="${prompt}      "
     else
-        prompt="${omg_ungit_prompt}"
+        prompt="- "
     fi
 
     if [[ $omg_two_lines == true && $is_a_git_repo == true ]]; then
