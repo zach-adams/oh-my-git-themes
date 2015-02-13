@@ -135,7 +135,7 @@ function custom_build_prompt {
         fi
         prompt="${prompt}      "
     else
-        prompt="hi${omg_ungit_prompt}"
+        prompt="${omg_ungit_prompt}"
     fi
 
     if [[ $omg_two_lines == true && $is_a_git_repo == true ]]; then
@@ -144,5 +144,5 @@ function custom_build_prompt {
         break='\n'
     fi
 
-    echo "${prompt}${reset}${break}${omg_finally}"
+    echo "hi${prompt}${reset}${break}${omg_finally}"
 }
