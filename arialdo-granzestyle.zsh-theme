@@ -133,7 +133,7 @@ function custom_build_prompt {
         if [[ $omg_display_tag_name == true && $is_on_a_tag == true ]]; then
             prompt+=" ${yellow}[${tag_at_current_commit}]${reset}"
         fi
-        prompt+="${prompt}      "
+        prompt+="      "
     else
         prompt="- "
     fi
