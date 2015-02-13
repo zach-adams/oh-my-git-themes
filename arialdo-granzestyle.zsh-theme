@@ -45,8 +45,8 @@ violet=$CYAN
 reset=$RESET
 
 
-PROMPT='hi$(build_prompt)%{$fg_bold[green]%}%~
-%{$fg_bold[white]%}∙ '
+PROMPT='$(build_prompt)
+∙ '
 RPROMPT='%{$reset_color%}%T %{$fg_bold[white]%} %n@%m%{$reset_color%}'
 
 
