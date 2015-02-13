@@ -45,7 +45,7 @@ violet=$CYAN
 reset=$RESET
 
 
-PROMPT='$(build_prompt)%{$fg_bold[green]%}%~
+PROMPT='hi$(build_prompt)%{$fg_bold[green]%}%~
 %{$fg_bold[white]%}∙ '
 RPROMPT='%{$reset_color%}%T %{$fg_bold[white]%} %n@%m%{$reset_color%}'
 
@@ -144,5 +144,5 @@ function custom_build_prompt {
         break='\n'
     fi
 
-    echo "hi${prompt}${reset}${break}${omg_finally}"
+    echo "${prompt}${reset}${break}${omg_finally}"
 }
