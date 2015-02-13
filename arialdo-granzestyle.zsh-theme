@@ -133,9 +133,9 @@ function custom_build_prompt {
         if [[ $omg_display_tag_name == true && $is_on_a_tag == true ]]; then
             prompt="${prompt} ${yellow}[${tag_at_current_commit}]${reset}"
         fi
-        prompt="hi${prompt}      "
+        prompt="${prompt}      "
     else
-        prompt="${omg_ungit_prompt}"
+        prompt="hi${omg_ungit_prompt}"
     fi
 
     if [[ $omg_two_lines == true && $is_a_git_repo == true ]]; then
