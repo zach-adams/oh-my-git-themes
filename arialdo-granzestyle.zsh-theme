@@ -1,4 +1,5 @@
 # Symbols
+: ${omg_ungit_prompt:=$PS1}
 : ${omg_is_a_git_repo_symbol:='❤'}
 : ${omg_has_untracked_files_symbol:='∿'}
 : ${omg_has_adds_symbol:='+'}
@@ -133,12 +134,14 @@ function custom_build_prompt {
             prompt="${prompt} ${yellow}[${tag_at_current_commit}]${reset}"
         fi
         prompt="${prompt}      "
+    else
+        prompt="${omg_ungit_prompt}"
     fi
 
     if [[ $omg_two_lines == true && $is_a_git_repo == true ]]; then
         break='\n'
     else
-        break=''
+        break='\n'
     fi
 
     echo "${prompt}${reset}${break}${omg_finally}"
