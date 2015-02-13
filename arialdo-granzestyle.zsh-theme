@@ -138,5 +138,5 @@ function custom_build_prompt {
         prompt="- "
     fi
 
-    echo "${prompt}"
+    echo "${prompt} - ${is_a_git_repo}"
 }
