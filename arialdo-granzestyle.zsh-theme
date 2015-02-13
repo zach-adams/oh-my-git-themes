@@ -77,6 +77,7 @@ function custom_build_prompt {
     local has_stashes=${23}
 
     local current_path="%~"
+    local original_prompt=$PS1
 
     local prompt=""
 
