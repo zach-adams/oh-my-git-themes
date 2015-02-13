@@ -99,9 +99,9 @@ function custom_build_prompt {
         fi
         if [[ $detached == true ]]; then
             if [[ $just_init == true ]]; then
-                prompt="${prompt} ${red}detached"
+                prompt+="${prompt} ${red}detached"
             else
-                prompt="${prompt} ${omg_default_color_on}(${current_commit_hash:0:7})"
+                prompt+="${prompt} ${omg_default_color_on}(${current_commit_hash:0:7})"
             fi
         else
             if [[ $has_upstream == true ]]; then
@@ -112,37 +112,31 @@ function custom_build_prompt {
                 fi
 
                 if [[ $has_diverged == true ]]; then
-                    prompt="${prompt}-${commits_behind} ${omg_has_diverged_symbol} +${commits_ahead} "
+                    prompt+="${prompt}-${commits_behind} ${omg_has_diverged_symbol} +${commits_ahead} "
                 else
                     if [[ $commits_behind -gt 0 ]]; then
-                        prompt="${prompt}${omg_default_color_on} -${commits_behind} ${omg_can_fast_forward_symbol} "
+                        prompt+="${prompt}${omg_default_color_on} -${commits_behind} ${omg_can_fast_forward_symbol} "
                     fi
                     if [[ $commits_ahead -gt 0 ]]; then
-                        prompt="${prompt}${omg_default_color_on} ${omg_should_push_symbol} +${commits_ahead} "
+                        prompt+="${prompt}${omg_default_color_on} ${omg_should_push_symbol} +${commits_ahead} "
                     fi
                 fi
-                prompt="${prompt}(${green}${current_branch}${reset} ${type_of_upstream} ${upstream//\/$current_branch/})"
+                prompt+="${prompt}(${green}${current_branch}${reset} ${type_of_upstream} ${upstream//\/$current_branch/})"
             else
-                prompt="${prompt}${omg_default_color_on}(${green}${current_branch}${reset})"
+                prompt+="${prompt}${omg_default_color_on}(${green}${current_branch}${reset})"
             fi
         fi
 
         if [[ $omg_display_tag == true && $is_on_a_tag == true ]]; then
-            prompt="${prompt} ${yellow}${omg_is_on_a_tag_symbol}${reset}"
+            prompt+="${prompt} ${yellow}${omg_is_on_a_tag_symbol}${reset}"
         fi
         if [[ $omg_display_tag_name == true && $is_on_a_tag == true ]]; then
-            prompt="${prompt} ${yellow}[${tag_at_current_commit}]${reset}"
+            prompt+="${prompt} ${yellow}[${tag_at_current_commit}]${reset}"
         fi
-        prompt="${prompt}      "
+        prompt+="${prompt}      "
     else
         prompt="- "
     fi
 
-    if [[ $omg_two_lines == true && $is_a_git_repo == true ]]; then
-        break='\n'
-    else
-        break='\n'
-    fi
-
-    echo "${prompt}${reset}${break}${omg_finally}"
+    echo "${prompt}"
 }
