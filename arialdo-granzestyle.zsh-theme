@@ -25,6 +25,11 @@ autoload -U colors && colors
 PROMPT='$(build_prompt)'
 RPROMPT='%{$reset_color%}%T %{$fg_bold[white]%} %n@%m%{$reset_color%}'
 
+red=$RED
+green=$GREEN
+yellow=$YELLOW
+violet=$CYAN
+
 function enrich_append {
 	local flag=$1
 	local symbol=$2
@@ -63,20 +68,11 @@ function custom_build_prompt {
 	local prompt=""
 	local original_prompt=$PS1
 
-
-	local black_on_white="%K{white}%F{black}"
-	local yellow_on_white="%K{white}%F{yellow}"
-	local red_on_white="%K{white}%F{red}"
-	local red_on_black="%K{black}%F{red}"
-	local black_on_red="%K{red}%F{black}"
-	local white_on_red="%K{red}%F{white}"
-	local yellow_on_red="%K{red}%F{yellow}"
-
 	local current_path="%~"
 
 	if [[ $is_a_git_repo == true ]]; then
 		# on filesystem
-		prompt+=$(enrich_append $is_a_git_repo $omg_is_a_git_repo_symbol {$violet}")
+		prompt+=$(enrich_append $is_a_git_repo $omg_is_a_git_repo_symbol "${violet}")
 		prompt+=$( enrich_append $has_stashes $omg_has_stashes_symbol $yellow)
 
 		prompt+=$(enrich_append $has_untracked_files $omg_has_untracked_files_symbol $red)
