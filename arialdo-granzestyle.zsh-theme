@@ -76,7 +76,7 @@ function custom_build_prompt {
 
 	if [[ $is_a_git_repo == true ]]; then
 		# on filesystem
-		prompt+=$(enrich_append $is_a_git_repo $omg_is_a_git_repo_symbol $violet")
+		prompt+=$( enrich_append $is_a_git_repo $omg_is_a_git_repo_symbol $violet")
 		prompt+=$(enrich_append $has_stashes $omg_has_stashes_symbol $yellow)
 
 		prompt+=$(enrich_append $has_untracked_files $omg_has_untracked_files_symbol $red)
