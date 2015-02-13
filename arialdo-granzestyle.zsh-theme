@@ -45,7 +45,8 @@ violet=$CYAN
 reset=$RESET
 
 
-PROMPT='$(build_prompt)'
+PROMPT='$(build_prompt)%{$fg_bold[green]%}%~
+ %{$fg_bold[white]%}∙ '
 RPROMPT='%{$reset_color%}%T %{$fg_bold[white]%} %n@%m%{$reset_color%}'
 
 
@@ -75,6 +76,7 @@ function custom_build_prompt {
     local will_rebase=${22}
     local has_stashes=${23}
 
+    local current_path="%~"
 
     local prompt=""
 
